@@ -1,0 +1,27 @@
+import random
+
+# კატეგორიების და ტექსტების სია
+categories = ['fruit', 'vegetable', 'furniture']
+fruits = ['apple', 'banana', 'orange', 'grape', 'peach']
+vegetables = ['carrot', 'tomato', 'cucumber', 'lettuce', 'pepper']
+furniture = ['table', 'chair', 'sofa', 'bed', 'wardrobe']
+
+# ფაილის დაწერა
+with open('data.txt', 'w') as file:
+    for _ in range(100):  # სიცარიელი ფაილის შესავსება
+        category = random.choice(categories)
+        if category == 'fruit':
+            text = random.choice(fruits)
+        elif category == 'vegetable':
+            text = random.choice(vegetables)
+        else:
+            text = random.choice(furniture)
+        
+        # რაოდენობის გენერირება 1-10 შუალედში
+        count = random.randint(1, 10)
+        
+        # სხვაობის გენერირება 1-5 შუალედში
+        difference = random.randint(1, 5)
+        
+        # ფაილში ჩაწერა
+        file.write(f"{text}\n{category}\n{count}\n{difference}\n")
